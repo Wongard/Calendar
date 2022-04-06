@@ -3,20 +3,34 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
         xmlns:local="clr-namespace:Calendar"
+        
         mc:Ignorable="d"
         Title="InsertWindow" Height="342" Width="324">
     <Grid Height="419" VerticalAlignment="Top">
         <TextBlock HorizontalAlignment="Left" Margin="8,10,0,0" TextWrapping="Wrap" Text="Title: " VerticalAlignment="Top" RenderTransformOrigin="-1.939,-1.562"/>
-        <TextBlock HorizontalAlignment="Left" Margin="8,35,0,0" TextWrapping="Wrap" Text="Date: " VerticalAlignment="Top" RenderTransformOrigin="-1.939,-1.562"/>
-        <TextBlock HorizontalAlignment="Left" Margin="8,66,0,0" TextWrapping="Wrap" Text="Place: " VerticalAlignment="Top" RenderTransformOrigin="-1.939,-1.562"/>
-        <TextBlock HorizontalAlignment="Left" Margin="8,94,0,0" TextWrapping="Wrap" Text="Note: " VerticalAlignment="Top" RenderTransformOrigin="-1.939,-1.562"/>
-        <DatePicker Name="dateBox" HorizontalAlignment="Left" Margin="110,31,0,0" VerticalAlignment="Top"/>
-        <DataGrid  HorizontalAlignment="Left" Height="0" Margin="130,60,0,0" VerticalAlignment="Top" Width="8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="8,35,0,0" TextWrapping="Wrap" Text="Day:" VerticalAlignment="Top" RenderTransformOrigin="-1.939,-1.562"/>
+        <TextBlock HorizontalAlignment="Left" Margin="8,104,0,0" TextWrapping="Wrap" Text="Place: " VerticalAlignment="Top" RenderTransformOrigin="-1.939,-1.562"/>
+        <TextBlock HorizontalAlignment="Left" Margin="8,132,0,0" TextWrapping="Wrap" Text="Note: " VerticalAlignment="Top" RenderTransformOrigin="-1.939,-1.562"/>
+        <DataGrid  HorizontalAlignment="Left" Height="0" Margin="130,98,0,0" VerticalAlignment="Top" Width="8"/>
         <TextBox Name="titleBox" HorizontalAlignment="Left" Height="23" Margin="110,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="placeBox" HorizontalAlignment="Left" Height="23" Margin="110,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="noteBox" HorizontalAlignment="Left" Height="63" Margin="110,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="placeBox" HorizontalAlignment="Left" Height="23" Margin="110,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="noteBox" HorizontalAlignment="Left" Height="63" Margin="110,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Content="Add" HorizontalAlignment="Left" Margin="231,265,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.467,0.5" Click="btnAdd_Clik"/>
+        <ComboBox Name="dayBox" HorizontalAlignment="Left" Margin="110,31,0,0" VerticalAlignment="Top" Width="120" Text="Monday">
+            <ComboBoxItem>Monday</ComboBoxItem>
+            <ComboBoxItem>Tuesday</ComboBoxItem>
+            <ComboBoxItem>Wednesday</ComboBoxItem>
+            <ComboBoxItem>Thursday</ComboBoxItem>
+            <ComboBoxItem>Friday</ComboBoxItem>
+            <ComboBoxItem>Saturday</ComboBoxItem>
+            <ComboBoxItem>Sunday</ComboBoxItem>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="8,65,0,0" TextWrapping="Wrap" Text="Time:" VerticalAlignment="Top" RenderTransformOrigin="-1.939,-1.562"/>
+        <TextBox x:Name="hourBox" HorizontalAlignment="Left" Height="23" Margin="110,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0.25,0.652"/>
+        <TextBox x:Name="minuteBox" HorizontalAlignment="Left" Height="23" Margin="141,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="135,68,0,0" TextWrapping="Wrap" Text=": " VerticalAlignment="Top" RenderTransformOrigin="-1.939,-1.562"/>
 
     </Grid>
 </Window>

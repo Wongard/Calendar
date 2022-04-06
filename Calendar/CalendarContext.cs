@@ -50,8 +50,9 @@ namespace Calendar
         {
             var reminders = new List<Reminder>
             {
-                new Reminder() {ID = 1001, title="Silownia", note="Spocimy sie panowie", place="Tam gdzie zawsze", date=DateTime.Now},
-                new Reminder() {ID = 1002, title="Jedzenie", note="Am am",date=DateTime.Now}
+                new Reminder() {ID = 1001, title="Silownia", note="Spocimy sie panowie", place="Tam gdzie zawsze",day="Monday"},
+                new Reminder() {ID = 1002, title="Jedzenie", note="Am am",day="Friday", hour=12, minute=15},
+                new Reminder() {ID = 1003, title="Spanie", note="Rezydent Œpi¹cy", day = "Friday",hour=6,minute=0}
             };
             reminders.ForEach(c => context.Reminders.Add(c));
             context.SaveChanges();

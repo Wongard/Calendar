@@ -21,7 +21,9 @@ namespace Calendar
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<String> _days = new List <String> { "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
         List<Reminder> reminders;
+       // List<List<Reminder>> reminders_day;
         public static ListBox lBox;
         public MainWindow()
         {
@@ -32,19 +34,47 @@ namespace Calendar
         {
             using (var context = new CalendarContext())
             {
-                reminders = context.Reminders.ToList();
+                foreach (string day in _days)
+                {
+                    reminders = (from r in context.Reminders
+                                 where r.day == day
+                                 orderby r.hour,r.minute          
+                                 select r).ToList();
+                    Loadto(day);
+                }
             }
-            reminderList.ItemsSource = reminders;
             
+
             Debug.WriteLine("ELO");
         }
-        private void btnShowSelectedItem_Click(object sender, RoutedEventArgs e)
+        public void Loadto(string day)
         {
-            var cos = (reminderList.SelectedItem as Reminder).title;
-            MessageBox.Show(cos);
-            //MessageBox.Show(cos);
-            //MessageBox.Show((studentList.SelectedItem as Student).StudentName);
+            switch(day)
+            {
+                case "Monday":
+                    mondayList.ItemsSource = reminders;
+                    break;
+                case "Tuesday": 
+                    tuesdayList.ItemsSource = reminders;
+                    break;
+                case "Wednesday": 
+                    wednesdayList.ItemsSource = reminders;
+                    break;
+                case "Thursday":
+                    thursdayList.ItemsSource = reminders;
+                    break;
+                case "Friday":
+                    fridayList.ItemsSource = reminders;
+                    break;
+                case "Saturday":
+                    saturdayList.ItemsSource = reminders;
+                    break;
+                case "Sunday":
+                    sundayList.ItemsSource = reminders;
+                    break;
+            }
         }
+
         private void btnInsert_Clik(object sender, RoutedEventArgs e)
         {
             InsertWindow ins_window = new InsertWindow();
@@ -58,7 +88,16 @@ namespace Calendar
 
         private void btnInfo_Clik(object sender, RoutedEventArgs e)
         {
-            int id = (reminderList.SelectedItem as Reminder).ID;
+            int id=-1;//(reminderList.SelectedItem as Reminder).ID;
+            if (mondayList.SelectedItem != null) id = (mondayList.SelectedItem as Reminder).ID;
+            else if (tuesdayList.SelectedItem != null) id = (tuesdayList.SelectedItem as Reminder).ID;
+            else if (wednesdayList.SelectedItem != null) id = (wednesdayList.SelectedItem as Reminder).ID;
+            else if (thursdayList.SelectedItem != null) id = (thursdayList.SelectedItem as Reminder).ID;
+            else if (fridayList.SelectedItem != null) id = (fridayList.SelectedItem as Reminder).ID;
+            else if (saturdayList.SelectedItem != null) id = (saturdayList.SelectedItem as Reminder).ID;
+            else if (sundayList.SelectedItem != null) id = (sundayList.SelectedItem as Reminder).ID;
+
+            if (id == -1) return;
             InfoWindow inf_window = new InfoWindow(id);
             inf_window.ShowDialog();
         }

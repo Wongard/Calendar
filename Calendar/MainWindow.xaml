@@ -68,19 +68,22 @@
                        Grid.Column="4"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"/>
-        </Grid>
-        <Grid Grid.Row="1"
-              Grid.ColumnSpan="2">
-            <TextBlock Text="ELO@#12321"
+            <TextBlock Text="Saturday"
+                       Foreground="Gray"
+                       Grid.Column="5"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"/>
-
-
+            <TextBlock Text="Sunday"
+                       Foreground="Gray"
+                       Grid.Column="6"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
         </Grid>
+
         <Grid Grid.Row="1"
               Grid.ColumnSpan="1"
-              Grid.Column="2">
-            <ListBox DockPanel.Dock="Top" Name="reminderList" HorizontalContentAlignment="Stretch">
+              Grid.Column="0">
+            <ListBox DockPanel.Dock="Top" Name="mondayList" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,1">
@@ -93,20 +96,116 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+        </Grid>
+        <Grid Grid.Row="1"
+              Grid.ColumnSpan="1"
+              Grid.Column="1">
+        <ListBox DockPanel.Dock="Top" Name="tuesdayList" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="50" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding title}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+    <Grid Grid.Row="1"
+              Grid.ColumnSpan="1"
+              Grid.Column="2">
+                <ListBox DockPanel.Dock="Top" Name="wednesdayList" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="50" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding title}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="1"
+              Grid.ColumnSpan="1"
+              Grid.Column="3">
+                <ListBox DockPanel.Dock="Top" Name="thursdayList" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="50" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding title}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="1"
+              Grid.ColumnSpan="1"
+              Grid.Column="4">
+                    <ListBox DockPanel.Dock="Top" Name="fridayList" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="50" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding title}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="1"
+              Grid.ColumnSpan="1"
+              Grid.Column="5">
+                        <ListBox DockPanel.Dock="Top" Name="saturdayList" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="50" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding title}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="1"
+              Grid.ColumnSpan="1"
+              Grid.Column="6">
+            <ListBox DockPanel.Dock="Top" Name="sundayList" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="50" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding title}" />
+                        </Grid>
+                        
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
             <!--TextBlock Text="ELO JAK TAM IDZIE"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"/-->
 
 
         </Grid>
-        <Grid Grid.Column="3"
-              Grid.Row="1"
-              Grid.ColumnSpan="2">
-            <TextBlock Text="Test"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       ></TextBlock>
-        </Grid>
+       
         <Button Content="Insert" 
                 Grid.Column="6" 
                 HorizontalAlignment="Left" 

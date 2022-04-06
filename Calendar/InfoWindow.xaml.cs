@@ -32,8 +32,10 @@ namespace Calendar
                                      where r.ID == id
                                      select r).Single();
             titleBox.Text = reminderInfo.title;
-            dateBox.DataContext = reminderInfo.date;
+            //dateBox.DataContext = reminderInfo.date;
             //int godizna = reminderInfo.date.Year;
+            if(reminderInfo.minute > 9)dateBox.Text = reminderInfo.hour + ":" + reminderInfo.minute;
+            else dateBox.Text = reminderInfo.hour + ":0" + reminderInfo.minute;
             noteBox.Text = reminderInfo.note;
             placeBox.Text = reminderInfo.place;
         }

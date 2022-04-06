@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calendar"
         mc:Ignorable="d"
-        Title="InfoWindow" Height="450" Width="364">
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="21,50,0,0" TextWrapping="Wrap" Text="Date: " VerticalAlignment="Top"/>
+        Title="InfoWindow" Height="347" Width="364">
+    <Grid Height="322" VerticalAlignment="Top">
+        <TextBlock HorizontalAlignment="Left" Margin="21,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.594,0.312"><Run Text="Time"/><Run Text=": "/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="21,25,0,0" TextWrapping="Wrap" Text="Title: " VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="21,75,0,0" TextWrapping="Wrap" Text="Place: " VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Name="titleBox" Margin="125,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="3.714,0.312" Width="150"/>
-        <TextBlock HorizontalAlignment="Left" x:Name="noteBox" Margin="125,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="3.714,0.312" Width="150"><InlineUIContainer>
-                <DataGrid Height="100" Width="100" x:Name="dateBox" SelectionChanged="dateBox_SelectionChanged"/>
-            </InlineUIContainer></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Name="placeBox" Margin="125,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="3.714,0.312" Width="150"/>
-        <TextBlock HorizontalAlignment="Left" Margin="21,110,0,0" TextWrapping="Wrap" Text="Note: " VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Name="titleBox" Margin="90,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="3.714,0.312" Width="150"/>
+        <TextBlock HorizontalAlignment="Left" x:Name="noteBox" Margin="90,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="3.714,0.312" Width="150"/>
+        <TextBlock HorizontalAlignment="Left" Name="placeBox" Margin="90,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="3.714,0.312" Width="150"/>
+        <TextBlock HorizontalAlignment="Left" Margin="21,100,0,0" TextWrapping="Wrap" Text="Note: " VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Name="dateBox" Margin="90,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+
 
     </Grid>
 </Window>
