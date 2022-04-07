@@ -16,9 +16,6 @@ using System.Diagnostics;
 
 namespace Calendar
 {
-    /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         List<String> _days = new List <String> { "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
@@ -43,9 +40,6 @@ namespace Calendar
                     Loadto(day);
                 }
             }
-            
-
-            Debug.WriteLine("ELO");
         }
         public void Loadto(string day)
         {
@@ -74,11 +68,14 @@ namespace Calendar
                     break;
             }
         }
-
+        /*   =============================================
+         *   ============== BUTTONS ======================
+         *  ============================================== */
         private void btnInsert_Clik(object sender, RoutedEventArgs e)
         {
             InsertWindow ins_window = new InsertWindow();
             ins_window.ShowDialog();
+            Load();
         }
 
         private void btnRefresh_Clik(object sender, RoutedEventArgs e)
@@ -89,17 +86,18 @@ namespace Calendar
         private void btnInfo_Clik(object sender, RoutedEventArgs e)
         {
             int id=-1;//(reminderList.SelectedItem as Reminder).ID;
-            if (mondayList.SelectedItem != null) id = (mondayList.SelectedItem as Reminder).ID;
-            else if (tuesdayList.SelectedItem != null) id = (tuesdayList.SelectedItem as Reminder).ID;
+            if (mondayList.SelectedItem != null)         id = (mondayList.SelectedItem as Reminder).ID;
+            else if (tuesdayList.SelectedItem != null)   id = (tuesdayList.SelectedItem as Reminder).ID;
             else if (wednesdayList.SelectedItem != null) id = (wednesdayList.SelectedItem as Reminder).ID;
-            else if (thursdayList.SelectedItem != null) id = (thursdayList.SelectedItem as Reminder).ID;
-            else if (fridayList.SelectedItem != null) id = (fridayList.SelectedItem as Reminder).ID;
-            else if (saturdayList.SelectedItem != null) id = (saturdayList.SelectedItem as Reminder).ID;
-            else if (sundayList.SelectedItem != null) id = (sundayList.SelectedItem as Reminder).ID;
+            else if (thursdayList.SelectedItem != null)  id = (thursdayList.SelectedItem as Reminder).ID;
+            else if (fridayList.SelectedItem != null)    id = (fridayList.SelectedItem as Reminder).ID;
+            else if (saturdayList.SelectedItem != null)  id = (saturdayList.SelectedItem as Reminder).ID;
+            else if (sundayList.SelectedItem != null)    id = (sundayList.SelectedItem as Reminder).ID;
 
             if (id == -1) return;
             InfoWindow inf_window = new InfoWindow(id);
             inf_window.ShowDialog();
+            Load();
         }
     }
     

@@ -7,15 +7,18 @@
         mc:Ignorable="d"
         Title="InfoWindow" Height="347" Width="364">
     <Grid Height="322" VerticalAlignment="Top">
-        <TextBlock HorizontalAlignment="Left" Margin="21,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.594,0.312"><Run Text="Time"/><Run Text=": "/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="22,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.594,0.312"><Run Text="Time"/><Run Text=": "/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="21,25,0,0" TextWrapping="Wrap" Text="Title: " VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="21,75,0,0" TextWrapping="Wrap" Text="Place: " VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="23,100,0,0" TextWrapping="Wrap" Text="Place: " VerticalAlignment="Top" RenderTransformOrigin="0.568,1.128"/>
         <TextBlock HorizontalAlignment="Left" Name="titleBox" Margin="90,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="3.714,0.312" Width="150"/>
-        <TextBlock HorizontalAlignment="Left" x:Name="noteBox" Margin="90,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="3.714,0.312" Width="150"/>
-        <TextBlock HorizontalAlignment="Left" Name="placeBox" Margin="90,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="3.714,0.312" Width="150"/>
-        <TextBlock HorizontalAlignment="Left" Margin="21,100,0,0" TextWrapping="Wrap" Text="Note: " VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Name="dateBox" Margin="90,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
-
+        <TextBlock HorizontalAlignment="Left" x:Name="noteBox" Margin="90,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="3.714,0.312" Width="150"/>
+        <TextBlock HorizontalAlignment="Left" Name="placeBox" Margin="90,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="3.714,0.312" Width="150"/>
+        <TextBlock HorizontalAlignment="Left" Margin="23,125,0,0" TextWrapping="Wrap" Text="Note: " VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Name="dateBox" Margin="90,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="260,275,0,0" VerticalAlignment="Top" Width="75" Click="btnEdit_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="21,50,0,0" TextWrapping="Wrap" Text="Day:" VerticalAlignment="Top" RenderTransformOrigin="0.568,1.128"/>
+        <TextBlock HorizontalAlignment="Left" x:Name="dayBox" Margin="90,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="3.714,0.312" Width="150"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="10,275,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.467,1.5" Click="btnDelete_Clik"/>
 
     </Grid>
 </Window>

@@ -3,9 +3,6 @@
 
 namespace Calendar
 {
-    /// <summary>
-    /// Logika interakcji dla klasy InsertWindow.xaml
-    /// </summary>
     public partial class InsertWindow : Window
     {
         CalendarContext context = new CalendarContext();
@@ -13,6 +10,9 @@ namespace Calendar
         {
             InitializeComponent();
         }
+        /*   =============================================
+         *   ============== BUTTONS ======================
+         *  ============================================== */
 
         private void btnAdd_Clik(object sender, RoutedEventArgs e)
         {
