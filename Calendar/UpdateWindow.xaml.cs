@@ -31,21 +31,43 @@ namespace Calendar
             dayBox.SelectedValue = reminderUpdate.day;
             placeBox.Text = reminderUpdate.place;
             noteBox.Text = reminderUpdate.note;
-            
+            hourBox.Text = Convert.ToString(reminderUpdate.hour);
+            minuteBox.Text = Convert.ToString(reminderUpdate.minute);
         }
         /*   =============================================
          *   ============== BUTTONS ======================
          *  ============================================== */
         private void btnOK_Clik(object sender, RoutedEventArgs e)
         {
+            int tmp;
+            if (!(int.TryParse(hourBox.Text, out tmp) || int.TryParse(hourBox.Text, out tmp)))
+            {
+                MessageBox.Show("Time value cannot be empty!");
+                return;
+            }
+            Reminder updatedReminder = new Reminder()
+            {
+                title = titleBox.Text,
+                place = placeBox.Text,
+                note = noteBox.Text,
+                day = dayBox.Text,
+                hour = int.Parse(hourBox.Text),
+                minute = int.Parse(minuteBox.Text)
+            };
+            /*reminderUpdate.title = titleBox.Text;
+            reminderUpdate.place = placeBox.Text;
+            reminderUpdate.note = noteBox.Text;
+            reminderUpdate.day = dayBox.Text;
+            reminderUpdate.hour = int.Parse(hourBox.Text);
+            reminderUpdate.minute = int.Parse(minuteBox.Text);*/
+            if(context.UpdateReminder(reminderUpdate.ID,updatedReminder)) this.Hide();
+            /*
             context.Entry(reminderUpdate).Entity.title = titleBox.Text;
             context.Entry(reminderUpdate).Entity.place = placeBox.Text;
             context.Entry(reminderUpdate).Entity.note = noteBox.Text;
             context.Entry(reminderUpdate).Entity.day = dayBox.Text;
             context.Entry(reminderUpdate).Entity.hour = int.Parse(hourBox.Text);
-            context.Entry(reminderUpdate).Entity.minute = int.Parse(minuteBox.Text);
-            context.SaveChanges();
-            this.Hide();
+            context.Entry(reminderUpdate).Entity.minute = int.Parse(minuteBox.Text);*/
         }
     }
 

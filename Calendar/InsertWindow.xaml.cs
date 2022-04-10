@@ -17,6 +17,12 @@ namespace Calendar
         private void btnAdd_Clik(object sender, RoutedEventArgs e)
         {
             string dana = hourBox.Text;
+            int tmp;
+            if (!(int.TryParse(hourBox.Text, out tmp) || int.TryParse(hourBox.Text, out tmp)))
+            {
+                MessageBox.Show("Time value cannot be empty!");
+                return;
+            }
             Reminder reminder = new Reminder()
             {
                 title = titleBox.Text,
@@ -26,9 +32,7 @@ namespace Calendar
                 hour = int.Parse(hourBox.Text),
                 minute = int.Parse(minuteBox.Text)
             };
-            context.Reminders.Add(reminder);
-            context.SaveChanges();
-            this.Hide();
+            if(context.AddNewReminder(reminder)) this.Hide();            
         }
     }
 }

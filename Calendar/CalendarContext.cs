@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace Calendar
 {
@@ -25,13 +26,42 @@ namespace Calendar
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
-        public void AddNewReminder(Reminder reminder)
+        public bool AddNewReminder(Reminder reminder)
         {
-            using(var context = new CalendarContext())
+            if (!CheckReminderValues(reminder)) return false;
+            using (var context = new CalendarContext())
             {
                 context.Reminders.Add(reminder);
                 context.SaveChanges();
+                return true;
             }
+        }
+        public bool UpdateReminder(int id, Reminder updatedReminer)
+        {
+            if (!CheckReminderValues(updatedReminer)) return false;
+            using (var context = new CalendarContext())
+            {
+                Reminder reminder = (from r in context.Reminders
+                                where r.ID == id
+                                select r).Single();
+                context.Entry(reminder).Entity.title = updatedReminer.title;
+                context.Entry(reminder).Entity.place = updatedReminer.place;
+                context.Entry(reminder).Entity.note = updatedReminer.note;
+                context.Entry(reminder).Entity.day = updatedReminer.day;
+                context.Entry(reminder).Entity.hour = updatedReminer.hour;
+                context.Entry(reminder).Entity.minute = updatedReminer.minute;
+                context.SaveChanges();
+            }
+            return true;
+        }
+        public bool CheckReminderValues(Reminder reminder)
+        {
+            if (reminder.title == "") MessageBox.Show("Title cannot be empty!");
+            else if (reminder.day == "") MessageBox.Show("You have to choose a day!");
+            else if (reminder.hour < 0 || reminder.hour > 23) MessageBox.Show("Hour value must be in range (0-23)");
+            else if (reminder.minute < 0 || reminder.minute > 59) MessageBox.Show("Minute value must be in range (0-59)");
+            else return true;
+            return false;
         }
         public Reminder GetReminderByDay(string day)
         {
@@ -44,9 +74,9 @@ namespace Calendar
             }
         }
     }
-    public class CalendarDbInitializer : DropCreateDatabaseAlways<CalendarContext>
+    public class CalendarDbInitializer : CreateDatabaseIfNotExists<CalendarContext> //DropCreateDatabaseAlways<CalendarContext>
     {
-        protected override void Seed(CalendarContext context)
+        /*protected override void Seed(CalendarContext context)
         {
             var reminders = new List<Reminder>
             {
@@ -56,7 +86,7 @@ namespace Calendar
             };
             reminders.ForEach(c => context.Reminders.Add(c));
             context.SaveChanges();
-        }
+        }*/
     }
 
 

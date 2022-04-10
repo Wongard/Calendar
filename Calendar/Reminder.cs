@@ -9,11 +9,11 @@ namespace Calendar
     public class Reminder
     {
         public int ID { get; set; }
-        public string title{ get; set; }
-        public string day { get; set; }
-        public int hour { get; set; }
-        public int minute { get; set; }
-        public string place { get; set; }
-        public string note { get; set; }
+        public string title{ get; set; } //NOT NULL
+        public string day { get; set; } // NOT NUL,  Default -> Monday
+        public int hour { get; set; } //NOT NULL
+        public int minute { get; set; } // NOT NULL
+        public string place { get; set; } 
+        public string note { get; set; } 
     }
 }
