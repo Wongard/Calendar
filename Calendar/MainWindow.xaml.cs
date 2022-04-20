@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using Newtonsoft.Json;
+using System.Net;
 
 namespace Calendar
 {
@@ -98,6 +100,27 @@ namespace Calendar
             InfoWindow inf_window = new InfoWindow(id);
             inf_window.ShowDialog();
             Load();
+        }
+
+        string APIkey = "180450b0a1b8191a37027a70e7eeac2f";
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            getWeather();
+        }
+        void getWeather()
+        {
+            using (WebClient web = new WebClient())
+            {
+                string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}&units=metric", TBcity.Text, APIkey);
+                var json = web.DownloadString(url);
+                WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
+
+                labCondition.Content = Info.weather[0].main;
+                labTemp.Content = Info.main.temp;
+                labWindspeed.Content = Info.wind.speed.ToString();
+                labPressure.Content = Info.main.pressure.ToString();
+            }
         }
     }
     

@@ -100,24 +100,24 @@
         <Grid Grid.Row="1"
               Grid.ColumnSpan="1"
               Grid.Column="1">
-        <ListBox DockPanel.Dock="Top" Name="tuesdayList" HorizontalContentAlignment="Stretch">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid Margin="0,1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="50" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding title}" />
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-    </Grid>
-    <Grid Grid.Row="1"
+            <ListBox DockPanel.Dock="Top" Name="tuesdayList" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="50" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding title}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="1"
               Grid.ColumnSpan="1"
               Grid.Column="2">
-                <ListBox DockPanel.Dock="Top" Name="wednesdayList" HorizontalContentAlignment="Stretch">
+            <ListBox DockPanel.Dock="Top" Name="wednesdayList" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,1">
@@ -134,7 +134,7 @@
         <Grid Grid.Row="1"
               Grid.ColumnSpan="1"
               Grid.Column="3">
-                <ListBox DockPanel.Dock="Top" Name="thursdayList" HorizontalContentAlignment="Stretch">
+            <ListBox DockPanel.Dock="Top" Name="thursdayList" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,1">
@@ -151,7 +151,7 @@
         <Grid Grid.Row="1"
               Grid.ColumnSpan="1"
               Grid.Column="4">
-                    <ListBox DockPanel.Dock="Top" Name="fridayList" HorizontalContentAlignment="Stretch">
+            <ListBox DockPanel.Dock="Top" Name="fridayList" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,1">
@@ -168,7 +168,7 @@
         <Grid Grid.Row="1"
               Grid.ColumnSpan="1"
               Grid.Column="5">
-                        <ListBox DockPanel.Dock="Top" Name="saturdayList" HorizontalContentAlignment="Stretch">
+            <ListBox DockPanel.Dock="Top" Name="saturdayList" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,1">
@@ -195,7 +195,7 @@
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding title}" />
                         </Grid>
-                        
+
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
@@ -205,7 +205,7 @@
 
 
         </Grid>
-       
+
         <Button Content="Insert" 
                 Grid.Column="6" 
                 HorizontalAlignment="Left" 
@@ -233,5 +233,16 @@
             Width="75"
             Click="btnInfo_Clik" Grid.ColumnSpan="2"
                 />
+        <Label Content="Miasto:" HorizontalAlignment="Left" Margin="33,156,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.507,-0.304" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="TBcity" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="87,160,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Calibri" FontSize="14"/>
+        <Button x:Name="btnSearch" Content="szukaj" Grid.Column="2" HorizontalAlignment="Left" Margin="11,160,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.384,0.511" FontFamily="Calibri" FontSize="14" Click="btnSearch_Click"/>
+        <Label x:Name="labCondition" Content="N/A" HorizontalAlignment="Left" Margin="110,241,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.507,-0.304" FontFamily="Calibri" FontSize="14" Grid.ColumnSpan="2"/>
+        <Label x:Name="labeltemp" Content="Temperatura:" HorizontalAlignment="Left" Margin="48,214,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.507,-0.304" FontFamily="Calibri" FontSize="14" Grid.ColumnSpan="2"/>
+        <Label x:Name="labTemp" Content="N/A" HorizontalAlignment="Left" Margin="21,214,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.507,-0.304" FontFamily="Calibri" FontSize="14" Grid.Column="1"/>
+        <Label x:Name="labelWindspeed" Content="Prędkość wiatru:" HorizontalAlignment="Left" Margin="11,216,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.507,-0.304" FontFamily="Calibri" FontSize="14" Grid.Column="2"/>
+        <Label x:Name="labWindspeed" Content="N/A" HorizontalAlignment="Left" Margin="108,216,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.507,-0.304" FontFamily="Calibri" FontSize="14" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Label x:Name="labelPressure" Content="Ciśnienie:" HorizontalAlignment="Left" Margin="11,243,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.507,-0.304" FontFamily="Calibri" FontSize="14" Grid.Column="2"/>
+        <Label x:Name="labPressure" Content="N/A" HorizontalAlignment="Left" Margin="71,243,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.507,-0.304" FontFamily="Calibri" FontSize="14" Grid.Column="2"/>
+        <Label x:Name="labelCondition" Content="Warunki:" HorizontalAlignment="Left" Margin="48,241,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.507,-0.304" FontFamily="Calibri" FontSize="14"/>
     </Grid>
 </Window>
