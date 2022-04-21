@@ -14,11 +14,20 @@ using System.Windows.Shapes;
 
 namespace Calendar
 {
+    /// <summary>
+    ///  UpdateWindow allows user to edit chosen reminder
+    /// </summary>
     public partial class UpdateWindow : Window
     {
         CalendarContext context = new CalendarContext();
         int id;
         Reminder reminderUpdate;
+        /// <summary>
+        /// Selects reminder with given id from database 
+        /// Fulfills the boxes with attributes of that reminder
+        /// Saves edited reminder id in the class for other methods
+        /// </summary>
+        /// <param name="reminderID">Id of the reminder we want to update</param>
         public UpdateWindow(int reminderID)
         {
             InitializeComponent();
@@ -37,6 +46,14 @@ namespace Calendar
         /*   =============================================
          *   ============== BUTTONS ======================
          *  ============================================== */
+
+        /// <summary>
+        /// Creates new reminder with box values and tries do update edited reminder
+        /// On failure displays Message Box with the first encountered error
+        /// On success closes this window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOK_Clik(object sender, RoutedEventArgs e)
         {
             int tmp;
@@ -54,20 +71,7 @@ namespace Calendar
                 hour = int.Parse(hourBox.Text),
                 minute = int.Parse(minuteBox.Text)
             };
-            /*reminderUpdate.title = titleBox.Text;
-            reminderUpdate.place = placeBox.Text;
-            reminderUpdate.note = noteBox.Text;
-            reminderUpdate.day = dayBox.Text;
-            reminderUpdate.hour = int.Parse(hourBox.Text);
-            reminderUpdate.minute = int.Parse(minuteBox.Text);*/
             if(context.UpdateReminder(reminderUpdate.ID,updatedReminder)) this.Hide();
-            /*
-            context.Entry(reminderUpdate).Entity.title = titleBox.Text;
-            context.Entry(reminderUpdate).Entity.place = placeBox.Text;
-            context.Entry(reminderUpdate).Entity.note = noteBox.Text;
-            context.Entry(reminderUpdate).Entity.day = dayBox.Text;
-            context.Entry(reminderUpdate).Entity.hour = int.Parse(hourBox.Text);
-            context.Entry(reminderUpdate).Entity.minute = int.Parse(minuteBox.Text);*/
         }
     }
 

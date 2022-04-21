@@ -9,23 +9,21 @@ namespace Calendar
 {
     public class CalendarContext : DbContext
     {
-        // Your context has been configured to use a 'CalendarContext' connection string from your application's 
-        // configuration file (App.config or Web.config). By default, this connection string targets the 
-        // 'Calendar.CalendarContext' database on your LocalDb instance. 
-        // 
-        // If you wish to target a different database and/or database provider, modify the 'CalendarContext' 
-        // connection string in the application configuration file.
         public CalendarContext() : base("name=CalendarContext")
         {
             this.Configuration.LazyLoadingEnabled = false;
         }
-
-        public DbSet<Reminder> Reminders { get; set; }
-
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
+        public DbSet<Reminder> Reminders { get; set; }
 
-        // public virtual DbSet<MyEntity> MyEntities { get; set; }
+        /// <summary>
+        /// Adds new reminder to database
+        /// Returns false when values are incorrect or some of them are missing
+        /// Retruns true on success
+        /// </summary>
+        /// <param name="reminder">new reminder</param>
+        /// <returns></returns>
         public bool AddNewReminder(Reminder reminder)
         {
             if (!CheckReminderValues(reminder)) return false;
@@ -36,6 +34,14 @@ namespace Calendar
                 return true;
             }
         }
+        /// <summary>
+        /// Updates values of existing reminder with new ones 
+        /// Returns false when values are incorrect or some of them are missing
+        /// Retruns true on success
+        /// </summary>
+        /// <param name="id"> Id of reminder we want to update</param>
+        /// <param name="updatedReminer"> Values we want to insert into updated reminder </param>
+        /// <returns></returns>
         public bool UpdateReminder(int id, Reminder updatedReminer)
         {
             if (!CheckReminderValues(updatedReminer)) return false;
@@ -54,6 +60,13 @@ namespace Calendar
             }
             return true;
         }
+ 
+        /// <summary>
+        /// Checks the values of reminder and returns true if all of them are correct
+        /// upon failure returns false and shows message box with first encountered error
+        /// </summary>
+        /// <param name="reminder">Reminder we want to check</param>
+        /// <returns></returns>
         public bool CheckReminderValues(Reminder reminder)
         {
             if (reminder.title == "") MessageBox.Show("Title cannot be empty!");
@@ -63,6 +76,11 @@ namespace Calendar
             else return true;
             return false;
         }
+        /// <summary>
+        /// Returns all reminders on a specific day
+        /// </summary>
+        /// <param name="day"></param>
+        /// <returns></returns>
         public Reminder GetReminderByDay(string day)
         {
             using(var context = new CalendarContext())
@@ -74,9 +92,18 @@ namespace Calendar
             }
         }
     }
+    /// <summary>
+    /// Initialize database by opening existing one or by creating new one
+    /// </summary>
     public class CalendarDbInitializer : CreateDatabaseIfNotExists<CalendarContext> //DropCreateDatabaseAlways<CalendarContext>
     {
-        /*protected override void Seed(CalendarContext context)
+       
+    }
+    /* Initialize database by creating new one
+     */
+    /*public class CalendarDbInitializer : DropCreateDatabaseAlways<CalendarContext>
+    {
+        protected override void Seed(CalendarContext context)
         {
             var reminders = new List<Reminder>
             {
@@ -86,14 +113,6 @@ namespace Calendar
             };
             reminders.ForEach(c => context.Reminders.Add(c));
             context.SaveChanges();
-        }*/
-    }
-
-
-
-    //public class MyEntity
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //}
+        }
+    }*/
 }

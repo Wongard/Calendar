@@ -3,9 +3,15 @@
 
 namespace Calendar
 {
+    /// <summary>
+    /// Allows to insert new reminder into database
+    /// </summary>
     public partial class InsertWindow : Window
     {
         CalendarContext context = new CalendarContext();
+        /// <summary>
+        /// Initialize window components
+        /// </summary>
         public InsertWindow()
         {
             InitializeComponent();
@@ -14,6 +20,13 @@ namespace Calendar
          *   ============== BUTTONS ======================
          *  ============================================== */
 
+        /// <summary>
+        /// Creates new reminder with box values and tries to add it to database
+        /// On succes hides this window
+        /// On failure displayes Message Box with the first encountered error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Clik(object sender, RoutedEventArgs e)
         {
             string dana = hourBox.Text;

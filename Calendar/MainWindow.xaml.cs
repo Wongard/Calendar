@@ -18,17 +18,24 @@ using System.Net;
 
 namespace Calendar
 {
+    /// <summary>
+    /// App's main window opened on start
+    /// Shows all reminders from database and weather informations
+    /// Allows to open other windows
+    /// </summary>
     public partial class MainWindow : Window
     {
         List<String> _days = new List <String> { "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
         List<Reminder> reminders;
-       // List<List<Reminder>> reminders_day;
-        public static ListBox lBox;
         public MainWindow()
         {
             InitializeComponent();
             Load();
         }
+        /// <summary>
+        /// Loads reminders from database and shows them on the window below specific day
+        /// Reminders are sorted by the time value -> earlier = highier
+        /// </summary>
         public void Load()
         {
             using (var context = new CalendarContext())
@@ -43,6 +50,10 @@ namespace Calendar
                 }
             }
         }
+        /// <summary>
+        /// Inserts list of reminders to the given day column
+        /// </summary>
+        /// <param name="day"></param>
         public void Loadto(string day)
         {
             switch(day)
@@ -73,18 +84,32 @@ namespace Calendar
         /*   =============================================
          *   ============== BUTTONS ======================
          *  ============================================== */
+        /// <summary>
+        /// Opens "InsertWindow" window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnInsert_Clik(object sender, RoutedEventArgs e)
         {
             InsertWindow ins_window = new InsertWindow();
             ins_window.ShowDialog();
             Load();
         }
-
+        /// <summary>
+        /// Refreshes the reminders shown on the window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRefresh_Clik(object sender, RoutedEventArgs e)
         {
             Load();
         }
-
+        /// <summary>
+        /// Opens "InfoWindow" window and pass the id of selected reminder if any reminder is selected
+        /// Does nothing when no reminder is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnInfo_Clik(object sender, RoutedEventArgs e)
         {
             int id=-1;//(reminderList.SelectedItem as Reminder).ID;
