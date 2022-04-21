@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Calendar
 {
+    /// <summary>
+    /// helps deserializing json objects
+    /// </summary>
     class WeatherInfo
     {
         public class coord

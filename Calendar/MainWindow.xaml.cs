@@ -129,10 +129,18 @@ namespace Calendar
 
         string APIkey = "180450b0a1b8191a37027a70e7eeac2f";
 
+        /// <summary>
+        /// handles the search button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             getWeather();
         }
+        /// <summary>
+        /// gets the weather from API
+        /// </summary>
         void getWeather()
         {
             using (WebClient web = new WebClient())
